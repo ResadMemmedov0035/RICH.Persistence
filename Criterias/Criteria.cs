@@ -7,4 +7,7 @@ public abstract class Criteria<T>
 
     public static CollectionCriteria<T> Collect(params Criteria<T>[] criterias)
         => new(criterias);
+
+    public static RawCriteria<T> From(Func<IQueryable<T>, IQueryable<T>> querySelector)
+        => new(querySelector);
 }
